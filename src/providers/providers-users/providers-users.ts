@@ -19,7 +19,7 @@ export class ProvidersUsersProvider {
   }
   
   list(): Observable<User | any > {
-    return this.http.get('/api/users');
+    return this.http.get('localhost:8080/users/users');
   }
 
 }
