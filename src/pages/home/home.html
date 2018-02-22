@@ -9,6 +9,12 @@
 <ion-content padding>
   The world is your oyster.
   <p>
-    {{users|json}}
+    <ion-item *ngFor="let item of users;">
+      User:
+      <ul>
+        <li>Name: {{item.name}}</li>
+        <li>Email: {{item.email}}</li>
+      </ul>
+    </ion-item>
   </p>
 </ion-content>
