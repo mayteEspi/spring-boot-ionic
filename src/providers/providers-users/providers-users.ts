@@ -19,7 +19,8 @@ export class ProvidersUsersProvider {
   }
   
   list(): Observable<User | any > {
-    return this.http.get('localhost:8080/users/users');
+    return this.http.get('http://localhost:8080/users');
+
   }
 
 }

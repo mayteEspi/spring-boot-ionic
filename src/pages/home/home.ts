@@ -16,9 +16,14 @@ export class HomePage {
 
   }
 
+  ngOnInit()  {
+    this.getAllUsers();
+  }
+
   getAllUsers() {
+    console.log('entro');
     return this.userProvider.list()
-     .subscribe(users => this.users)
+     .subscribe(users => this.users = users)
   }
   
 }
