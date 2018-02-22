@@ -1,6 +1,6 @@
 package com.meh.example.controller;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 import org.apache.commons.logging.Log;
@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.meh.example.model.UserModel;
@@ -24,14 +25,13 @@ public class ExampleRestController {
 	private UserService service;
 	
 	@GetMapping("/users")
-	public ResponseEntity<List<UserModel>> getUsers() {
-		ResponseEntity<List<UserModel>> responseListEntity = null;
+	public @ResponseBody List<UserModel> getUsers() {
+		List<UserModel> users = null;
 		try {
-			responseListEntity = new ResponseEntity<List<UserModel>>(service.getAllUsers(), HttpStatus.OK);
+			users = service.getAllUsers();
 		} catch (Exception exception) {
 			log.error(exception);
-			responseListEntity =new ResponseEntity<List<UserModel>>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
-		return responseListEntity;
+		return users;
 	}
 }
