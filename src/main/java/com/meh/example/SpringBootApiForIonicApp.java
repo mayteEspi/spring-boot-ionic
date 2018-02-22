@@ -1,12 +1,12 @@
-package com.example.demo;
+package com.meh.example;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringBootApiForIonicApplication {
+public class SpringBootApiForIonicApp {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringBootApiForIonicApplication.class, args);
+		SpringApplication.run(SpringBootApiForIonicApp.class, args);
 	}
 }
