@@ -21,7 +21,6 @@ export class HomePage {
   }
 
   getAllUsers() {
-    console.log('entro');
     return this.userProvider.list()
      .subscribe(users => this.users = users)
   }
