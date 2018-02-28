@@ -10,10 +10,7 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.context.embedded.LocalServerPort;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -26,15 +23,10 @@ public class ExampleRestControllerIT {
 	private int port;
 	
 	private  TestRestTemplate restTemplate ;
-	private  HttpEntity<String> requestEntity;
-	private HttpHeaders headers ;
-	
 	
 	@Before
 	public void setUp() throws Exception {
-		createBasicHeaders();
 		restTemplate = new TestRestTemplate();
-		requestEntity = new HttpEntity<String>(headers);
 	}
 	
 	@Test
@@ -48,9 +40,5 @@ public class ExampleRestControllerIT {
 		return "http://localhost:" + port + uri;
 	}
 
-	private HttpHeaders createBasicHeaders() {
-		headers = new HttpHeaders();
-		headers.set("Accept", MediaType.APPLICATION_JSON_VALUE);
-	    return headers;
-	}
+	
 }
